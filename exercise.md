@@ -9,9 +9,7 @@ Software requirements:
 - [samtools](http://www.htslib.org) (A suite of programs for interacting with HT sequencing data)
 - [Tablet](https://ics.hutton.ac.uk/tablet/) (Alignment/Assembly Viewer)
 
-For a short descripton of file formats see [here](https://github.com/demharters/assemblyTutorial/blob/master/dataFormats.md).
-
-You can find test data for this exercise [here](https://figshare.com/s/d8c757603d12d49ecaa0).
+For a short descripton of file formats see [here](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/dataFormats.md).
 
 To find out more about the options of a programme (poretools, samtools, lastdb etc.), type
 ```
@@ -19,8 +17,6 @@ To find out more about the options of a programme (poretools, samtools, lastdb e
 or
 man [programme]
 ```
-
-For test data, see [here]().
 
 ### Note
 **In the following, "reads_folder" and "reference.fasta" need to be replaced by your respective read folder and reference file name**
