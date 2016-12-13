@@ -15,7 +15,7 @@ This exercise will require Linux (Ubuntu).
 |ls|list folder contents|ls folderName|
 ||list folder contents and show most recent file at bottom|ls -ltr|
 
-**When you type a command in the terminal, try pressing tab while you're writing to see if software or file name exists (tab completion).**
+*When you type a command in the terminal, try pressing "TAB" while you're writing to see if software or file name exists (tab completion).*
 
 
 ### Sequencing Data
