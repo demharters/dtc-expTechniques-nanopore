@@ -9,11 +9,11 @@ This exercise will require Linux (Ubuntu).
 |---|---|---|
 |cd|change directory|cd folderName|
 ||go up one directory|cd ..|
-|mv|move/rename file/folder|mv oldFolderName newFolderName|
+|mv|move or rename file or folder|mv oldFolderName newFolderName|
 |cp|copy file|cp file fileCopy|
 |cp -r|copy folder|cp -r folder folderCopy|
 |ls|list folder contents|ls folderName|
-|ls -ltr|list folder contents and show most recent file at bottom|ls -ltr|
+||list folder contents and show most recent file at bottom|ls -ltr|
 
 
 ### Sequencing Data
