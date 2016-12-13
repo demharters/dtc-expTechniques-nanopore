@@ -11,7 +11,7 @@ Software requirements:
 
 For a short descripton of file formats see [here](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/dataFormats.md).
 
-To find out more about the options of a programme (poretools, samtools, lastdb etc.), type
+To find out more about the options of a programme (poretools, samtools, lastdb etc.), in the terminal type:
 ```
 [programme] --help
 or
@@ -19,7 +19,7 @@ man [programme]
 ```
 
 ### Note
-**In the following, "reads_folder" and "reference.fasta" need to be replaced by your respective read folder and reference file name**
+**In the following commands, "reads_folder" and "reference.fasta" need to be replaced by your respective read folder and reference file name, for example with "BC01" and "allRef.fasta", respectively.**
 
 ## Explore your data
 Poretools can help you characterise your reads dataset.
@@ -31,7 +31,13 @@ poretools yield_plot \
           --saveas reads_yield.pdf\
           reads_folder/
 ```
-*reads_folder/ should be replaced accordingly. To plot the total basepair count set --plot-type to "basepairs"*
+*To plot the total basepair count set --plot-type to "basepairs"*
+
+
+Use software such as libreOffice to look at the output. Provided you are in the right folder, in the terminal type:
+```
+libreOffice reads_yield.pdf
+```
 
 Plot the distribution of read lengths:
 ```
@@ -46,10 +52,12 @@ poretools hist --num-bins 20 --max-length 10000 read_folder/ --saveas readLength
 
 Look at the throughput of each of the pores:
 ```
-poretools occupancy reads_folder/
+poretools occupancy reads_folder/ --saveas occupancy.pdf
 ```
 
 For more commands see the [documentation](https://poretools.readthedocs.io/en/latest/content/examples.html).
+
+If there
 
 ## Genome Assembly
 ##### Step 1: Extract 2D reads as FASTA
