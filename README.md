@@ -1,24 +1,20 @@
 # dtc-expTechniques-nanopore
 
-You reads are located under /datasets/run1 and /datasets/run2.
+Each pair of you was assigned one DNA sample and one of 9 barcodes. As there were 18 pairs in total, each DNA sample and barcode was shared between two pairs. After you gave us your barcoded libraries on Tuesday we quantified them. Using those concentrations we split your samples up into two sets of 9 samples, pooled them and sequenced them on two independent Oxford Nanopore flow cells. The respective datasets are located under /datasets/run1 and /datasets/run2. Unfortunately, not all samples were sucessfully sequenced. This could be due to a variety of reasons.
 
-|Group|Barcode|Folder|
+For groups with no reads or a low number of reads, look at the samples of other pairs. The following table shows where the sequencing data can be found.
+
+|Group|Barcode|Run|
 |---|---|---|
 |1|BC01|2|
-|2|BC01|1|
-|3|BC02|1|
 |4|BC02|2|
 |5|BC03|1|
-|6|BC03|2|
-|7|BC04|1|
-|8|BC04|2|
 |9|BC05|1|
 |10|BC05|2|
 |11|BC06|2|
 |12|BC06|1|
 |13|BC07|2|
 |14|BC07|1|
-|15|BC08|1|
-|16|BC08|2|
 |17|BC09|1|
-|18|BC09|2|
+
+Follow the steps in [this exercise](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/exercise.md) to characterise the sequencing data, perform alignments and identify the barcoded samples.
