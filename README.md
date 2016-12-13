@@ -3,8 +3,9 @@
 
 ### Linux
 This exercise will require Linux (Ubuntu). 
-**Essential commands:**
-|Command|Action|Example
+**Useful commands:**
+|Command|Action|Example|
+|---|---|---|
 |cd|change directory|cd folderName|
 |mv|move/rename file/folder|mv oldFolderName newFolderName|
 |cp|copy file|cp file fileCopy|
