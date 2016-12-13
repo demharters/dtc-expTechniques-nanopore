@@ -3,6 +3,7 @@
 You reads are located under /datasets/run1 and /datasets/run2.
 
 |Group|Barcode|Folder|
+|---|---|---|
 |1|BC01|2|
 |2|BC01|1|
 |3|BC02|1|
