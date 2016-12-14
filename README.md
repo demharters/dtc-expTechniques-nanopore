@@ -19,6 +19,10 @@ This exercise will require Linux (Ubuntu).
 
 *When you type a command in the terminal, try pressing "TAB" while you're writing to see if software or file name exists (tab completion).*
 
+Popular tools for opening text files in Linux are vim (Terminal), less (Terminal), nano (Terminal), gedit (GUI) and libreoffice (GUI).
+
+Tools for opening pdfs and images in Ubuntu include among others evince, okular and libreoffice.
+
 
 ### Sequencing Data
 Each pair of you was assigned one DNA sample and one of 9 barcodes. As there were 18 pairs in total, each DNA sample and barcode was shared between two pairs. After you gave us your barcoded libraries on Tuesday we quantified them. Using those concentrations we split your samples up into two sets of 9 samples, pooled them and sequenced them on two independent Oxford Nanopore flow cells. The respective datasets are located under **/datasets/run1** and **/datasets/run2**. Unfortunately, not all samples were sucessfully sequenced. This could be due to a variety of reasons.
