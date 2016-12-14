@@ -1,5 +1,7 @@
 # dtc-expTechniques-nanopore
 
+## The Exercise
+[In this exercise](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/exercise.md) you will learn about nanopore read characterisation, genome alignment and alignment analysis.
 
 ### Linux
 This exercise will require Linux (Ubuntu). 
@@ -36,4 +38,4 @@ For groups with no reads or a low number of reads, look at the samples of other 
 |14|BC07|1|Genomic|
 |17|BC09|1|Genomic|
 
-Follow the steps in [this exercise](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/exercise.md) to characterise the sequencing data, perform alignments and identify the barcoded samples.
+Follow the steps in the [exercise](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/exercise.md) to characterise the sequencing data, perform alignments and identify the barcoded samples.
