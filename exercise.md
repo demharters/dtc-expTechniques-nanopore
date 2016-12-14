@@ -233,7 +233,8 @@ The 5 barcoded samples correspond to the following plasmids:
 Can you figure out which barcode matches which plasmid? Apply what you have learnt. You may want to add more sequences to your reference file.
 
 [This paper](http://apsjournals.apsnet.org/doi/abs/10.1094/MPMI.2003.16.7.634) will help you identify the different gac variants:
-Zuber, Sophie, et al. "GacS sensor domains pertinent to the regulation of exoproduct formation and to the biocontrol potential of Pseudomonas fluorescens CHA0." Molecular plant-microbe interactions 16.7 (2003): 634-644.
+
+* Zuber, Sophie, et al. "GacS sensor domains pertinent to the regulation of exoproduct formation and to the biocontrol potential of Pseudomonas fluorescens CHA0." Molecular plant-microbe interactions 16.7 (2003): 634-644.
 
 Feel free to collaborate.
 
