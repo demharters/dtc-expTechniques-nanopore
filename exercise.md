@@ -3,11 +3,13 @@
 In this exercise we introduce a simple pipeline for the alignment of Nanopore sequencing data to a known reference sequence. It is by no means a comprehensive guide but should be viewed as a resource for first time users.
 Important aspects such as quality control of the initial dataset and the usage of quality scores in the alignment are not covered. 
 
-Software requirements:
+Software:
 - [poretools](https://github.com/arq5x/poretools) (Toolkit for working with Nanopore data)
 - [LAST](http://last.cbrc.jp) (Alignment software for long reads)
 - [samtools](http://www.htslib.org) (A suite of programs for interacting with HT sequencing data)
 - [Tablet](https://ics.hutton.ac.uk/tablet/) (Alignment/Assembly Viewer)
+
+The executables to all these packages should already be in your Path. In case you are wondering, they are located in /usr/local/ or /usr/local/bin.
 
 For a short descripton of file formats see [here](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/dataFormats.md).
 
