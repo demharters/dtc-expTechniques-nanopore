@@ -220,6 +220,11 @@ tablet
 ![Tablet alignment](https://github.com/demharters/assemblyTutorial/blob/master/figures/tablet.png)
 **Figure 1** An alignment of Nanopore reads of E.coli as viewed in Tablet.
 
+##### Step 6: Characterise Samples
+For the genomic samples try aligning against GFP. If it doesn't show up try the genes of the lux operon (luxABCDE, Photorhabdus luminescens) as an alternate, larger target. You can find the relevant fasta sequences on Genbank. You may want to add these sequences to your reference file.
+
+For the genomic samples, if there is alignment against GFP, look at the genomic context of the GFP gene. Can you find the site of the transposon insertion?
+
 
 ### Classify plasmid variants
 For this part use the data provided in /datasets/backup. Note, that we were using an older nanopore chemistry and basecaller. To ensure high accuracy we performed 2D sequencing. So when you extract your fasta sequences with poretools do something like:
