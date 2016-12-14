@@ -66,7 +66,7 @@ Plot the distribution of read lengths:
 poretools hist reads_folder --saveas readLength_hist1.pdf
 ```
 
-You can modify four plot by adding the following options:
+You can modify your plot by adding the following options:
 ```
 poretools hist --min-length 1000 --max-length 10000 reads_folder --saveas readLength_hist2.pdf
 poretools hist --num-bins 20 --max-length 10000 read_folder --saveas readLength_hist3.pdf
@@ -225,10 +225,10 @@ tablet
 For this part use the data provided in /datasets/backup. Note, that we were using an older nanopore chemistry and basecaller. To ensure high accuracy we performed 2D sequencing. So when you extract your fasta sequences with poretools do something like:
 
 ```
-poretools fasta --type 2D /datasets/backup/BC04 > BC04_reads.fasta
+poretools fasta --type 2D /datasets/backup/BC04 > BC04_2Dreads.fasta
 ```
 
-The 5 barcoded samples BC04-BC8 correspond to the following plasmids:
+The 5 barcoded samples BC04-BC8 correspond to the following plasmids (not necessarily in that order):
 
 - P1. pGFP GFPmut3.1 in pME6010 – TetR
 - P2. pME3258 GacS from P. fluor CHAO, in pME6010 - TetR
@@ -242,5 +242,14 @@ Can you figure out which barcode matches which plasmid? Apply what you have lear
 
 * Zuber, Sophie, et al. "GacS sensor domains pertinent to the regulation of exoproduct formation and to the biocontrol potential of Pseudomonas fluorescens CHA0." Molecular plant-microbe interactions 16.7 (2003): 634-644.
 
-Feel free to collaborate.
+
+### Predicted phenotypes
+Reflect on the predicted phenotypes of introducing each of the GacS variants listed above into the following strains:
+
+* P. fluorescens WT
+* P. fluorescens gacS deletion
+* P. fluorescens tol mutant on a plasmid
+
+
+# Feel free to collaborate.
 
