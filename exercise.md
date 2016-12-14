@@ -109,10 +109,6 @@ Note, that we could also have used the fastq format which includes the quality s
 
 
 ###### Script
-The following commands can be run with [this script](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/alignmentScript.sh). Replace the values for "barcode" and "reference" accordingly.
-
-*I suggest you go through the commands one by one first.*
-
 ```
 #/bin/bash
 
@@ -128,6 +124,9 @@ samtools view -b -S -t ../../refSequences/$reference".fasta.fai" -o $barcode"_re
 samtools sort $barcode"_reads_aligned.bam" $barcode"_reads_aligned.sorted"
 samtools index $barcode"_reads_aligned.sorted.bam"
 ```
+The following commands can be run with [this script](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/alignmentScript.sh). Replace the values for "barcode" and "reference" accordingly.
+
+*I suggest you go through the commands one by one first.*
 
 Place the script under /tmp/nanoporeData/ and if located in /tmp/nanoporeData/run1/BC03 run it so:
 
