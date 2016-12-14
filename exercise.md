@@ -220,9 +220,13 @@ tablet
 
 
 ### Classify plasmid variants
-For this part use the data provided in /datasets/backup. 
+For this part use the data provided in /datasets/backup. Note, that we were using an older nanopore chemistry and basecaller. To ensure high accuracy we performed 2D sequencing. So when you extract your fasta sequences with poretools do something like:
 
-The 5 barcoded samples correspond to the following plasmids:
+```
+poretools fasta --type 2D /datasets/backup/BC04 > BC04_reads.fasta
+```
+
+The 5 barcoded samples BC04-BC8 correspond to the following plasmids:
 
 - P1. pGFP GFPmut3.1 in pME6010 – TetR
 - P2. pME3258 GacS from P. fluor CHAO, in pME6010 - TetR
