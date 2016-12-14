@@ -13,8 +13,7 @@ This exercise will require Linux (Ubuntu).
 |mv|move or rename file or folder|mv oldFolderName newFolderName|
 |cp|copy file|cp file fileCopy|
 |cp -r|copy folder|cp -r folder folderCopy|
-|ls|list folder contents|ls folderName|
-||list folder contents and show most recent file at bottom|ls -ltr|
+|ls|list folder contents<br/>list folder contents and show most recent file at bottom|ls folderName<br/>ls -ltr|
 
 *When you type a command in the terminal, try pressing "TAB" while you're writing to see if software or file name exists (tab completion).*
 
