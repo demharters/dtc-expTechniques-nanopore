@@ -178,3 +178,23 @@ tablet
 
 ![Tablet alignment](https://github.com/demharters/assemblyTutorial/blob/master/figures/tablet.png)
 **Figure 1** An alignment of Nanopore reads of E.coli as viewed in Tablet.
+
+
+### Classify plasmid variants
+For this part use the data provided in /datasets/backup. 
+
+The 5 barcoded samples correspond to the following plasmids:
+
+- P1. pGFP GFPmut3.1 in pME6010 – TetR
+- P2. pME3258 GacS from P. fluor CHAO, in pME6010 - TetR
+- P3. pME3281 GacS wt in miniTn7/pUC18 - GmR
+- P4. pME3283 GacS H294R in miniTn7/pUC18 - GmR
+- P5. pME6191 GacS Δ76 in miniTn7/pUC18 - GmR
+
+Can you figure out which barcode matches which plasmid? Apply what you have learnt. You may want to add more sequences to your reference file.
+
+[This paper](http://apsjournals.apsnet.org/doi/abs/10.1094/MPMI.2003.16.7.634) will help you identify the different gac variants:
+http://apsjournals.apsnet.org/doi/abs/10.1094/MPMI.2003.16.7.634
+
+Feel free to collaborate.
+
