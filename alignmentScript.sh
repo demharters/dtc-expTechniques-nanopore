@@ -1,6 +1,6 @@
 #/bin/bash
 
-barcode="BC01"
+barcode="BC03"
 reference="allRef"
 lastdb -Q 0 ../../refSequences/$reference".lastindex" ../../refSequences/$reference".fasta"
 lastal -s 2 -T 0 -Q 0 -a 1 ../../refSequences/$reference".lastindex" $barcode"_reads.fasta" > $barcode"_reads_aligned.maf"
