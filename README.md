@@ -9,7 +9,10 @@ This exercise will require Linux (Ubuntu).
 
 |Command|Action|Example|
 |---|---|---|
+|mkdir|make directory|mkdir folderName|
 |cd|change directory<br/>go up one directory|cd folderName<br/>cd ..|
+|pwd|print working directory|pwd|
+|rm|remove file|rm fileName<br/>rm -r folderName|remove file<br/>remove folder|
 |mv|move or rename file or folder|mv oldFolderName newFolderName|
 |cp|copy file|cp file fileCopy|
 |cp -r|copy folder|cp -r folder folderCopy|
