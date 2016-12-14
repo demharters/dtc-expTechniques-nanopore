@@ -9,8 +9,7 @@ This exercise will require Linux (Ubuntu).
 
 |Command|Action|Example|
 |---|---|---|
-|cd|change directory|cd folderName|
-||go up one directory|cd ..|
+|cd|change directory<br/>go up one directory|cd folderName<br/>cd ..|
 |mv|move or rename file or folder|mv oldFolderName newFolderName|
 |cp|copy file|cp file fileCopy|
 |cp -r|copy folder|cp -r folder folderCopy|
