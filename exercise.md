@@ -18,21 +18,37 @@ or
 man [programme]
 ```
 
-### Note
-**In the following commands, "reads_folder" and "reference.fasta" need to be replaced by your respective read folder and reference file name, for example with "BC01" and "allRef.fasta", respectively.**
+### The Exercise
+Due to storage requirements you will be working in /tmp. Go to /tmp and create a new directory. In the terminal do:
+```
+cd /tmp
+mkdir nanoporeData
+cd nanoporeData
+```
 
 ## Explore your data
-Poretools can help you characterise your reads dataset.
+Poretools can help you characterise your nanopore reads.
+For each barcoded sample you will create a new directory in /tmp/nanoporeData, for barcode BC03 you would do:
+```
+mkdir BC03
+cd BC03
+```
+If you want to exit a directory, do:
+```
+cd ..
+```
+
+### Note
+**In the following commands, "reads_folder" needs to be replaced with your respective read folder path, for example with "/datasets/run1/BC03".**
 
 Plot the total yield of your run:
 ```
 poretools yield_plot \
           --plot-type reads \
           --saveas reads_yield.pdf\
-          reads_folder/
+          reads_folder
 ```
 *To plot the total basepair count set --plot-type to "basepairs"*
-
 
 Use software such as libreOffice to look at the output. Provided you are in the right folder, in the terminal type:
 ```
@@ -41,52 +57,57 @@ libreOffice reads_yield.pdf
 
 Plot the distribution of read lengths:
 ```
-poretools hist reads_folder/ --saveas readLength_hist1.pdf
+poretools hist reads_folder --saveas readLength_hist1.pdf
 ```
 
 You can modify four plot by adding the following options:
 ```
-poretools hist --min-length 1000 --max-length 10000 reads_folder/ --saveas readLength_hist2.pdf
-poretools hist --num-bins 20 --max-length 10000 read_folder/ --saveas readLength_hist3.pdf
+poretools hist --min-length 1000 --max-length 10000 reads_folder --saveas readLength_hist2.pdf
+poretools hist --num-bins 20 --max-length 10000 read_folder --saveas readLength_hist3.pdf
 ```
 
 Look at the throughput of each of the pores:
 ```
-poretools occupancy reads_folder/ --saveas occupancy.pdf
+poretools occupancy reads_folder --saveas occupancy.pdf
 ```
 
-For more commands see the [documentation](https://poretools.readthedocs.io/en/latest/content/examples.html).
+For more commands see the [poretools documentation](https://poretools.readthedocs.io/en/latest/content/examples.html).
 
-If there
 
-## Genome Assembly
-##### Step 1: Extract 2D reads as FASTA
-Metrichor returns each of the basecalled reads as individual fast5 files. Use poretools to extract the 2D reads from the fast5 folder and store them in a single fasta file with the following command:
+## Alignment
+Before we continue with the alignments copy the provided directory of reference files under /datasets into /tmp/nanoporeData:
+```
+cd /tmp/nanoporeData
+cp -r /datasets/refSequences .
+```
+
+##### Step 1: Extract reads as FASTA
+The nanopore basecaller (Epi2Me) returns each of the basecalled reads as individual fast5 files. These are stored in binary format. We need to use **poretools** to extract the reads from the fast5 folder and store them in a single fasta file with the following command:
 
 ```
-poretools fasta --type 2D reads_folder/ > 2Dreads.fasta
+poretools fasta reads_folder > reads.fasta
 ```
 
 Note, that we could also have used the fastq format which includes the quality scores and may help with the alignment step. However, for simplicity we will use the fasta format.
 
-##### Step 2: Generate index files
-Create the index files required for sequence comparison and alignment by running the following command:
+##### Step 2: Index reference file
+Alignment tools like to index their files to improve computational efficiency. Provided you are working in a directory such as /tmp/nanoporeData/run1/BC03, and the reference file is named 'reference.fasta', the command would look like this:
 
 ```
-lastdb -Q 0 reference.lastindex reference.fasta
+lastdb -Q 0 ../../refSequences/reference.lastindex ../../refSequences/reference.fasta
 ```
 ```
 *HELP*
 -Q	input format: 0=fasta, 1=fastq
 ```
 
-This will generate a set of files with different extensions (.ssp, .tis, .sds, .des, .prj, .suf, .bck).
+This will generate a set of files in /tmp/nanoporeData/refSequences, with different extensions (.ssp, .tis, .sds, .des, .prj, .suf, .bck). These will be used by the alignment software in subsequent steps.
 
 ##### Step 3: Alignment
-Align the extracted 2d reads to the reference sequence with the following command (Nick Loman suggested the parameters, which work quite well):
+Align the extracted reads to the reference sequence with the following command:
 
 ```
-lastal -s 2 -T 0 -Q 0 -a 1 reference.lastindex 2Dreads.fasta > 2Dreads_aligned.maf
+lastal -s 2 -T 0 -Q 0 -a 1 ../../refSequences/reference.lastindex reads.fasta > reads_aligned.maf
 ```
 ```
 *HELP*
@@ -97,22 +118,22 @@ lastal -s 2 -T 0 -Q 0 -a 1 reference.lastindex 2Dreads.fasta > 2Dreads_aligned.m
 ```
 
 ##### Step 4: Generate Genome Viewer friendly alignment
-Convert your alignment to the .sam format with maf-convert.py (part of the LAST package):
+Convert your alignment to the .sam format with **maf-convert.py**:
 
 ```
-maf-convert sam 2Dreads_aligned.maf > 2Dreads_aligned.sam
+maf-convert sam reads_aligned.maf > reads_aligned.sam
 ```
 
-Index your reference file:
+Index your reference file (samtools has its own referencing scheme ..):
 
 ```
-samtools faidx reference.fasta
+samtools faidx ../../refSequences/reference.fasta
 ```
 
 Compress .sam to .bam:
 
 ```
-samtools view -b -S -t reference.fasta.fai -o 2Dreads_aligned.bam 2Dreads_aligned.sam
+samtools view -b -S -t ../../refSequences/reference.fasta.fai -o reads_aligned.bam reads_aligned.sam
 ```
 ```
 *HELP*
@@ -125,17 +146,21 @@ samtools view -b -S -t reference.fasta.fai -o 2Dreads_aligned.bam 2Dreads_aligne
 Sort your alignment by genome location to allow for pile-up:
 
 ```
-samtools sort 2Dreads_aligned.bam 2Dreads_aligned.sorted
+samtools sort reads_aligned.bam reads_aligned.sorted
 ```
 
-Index the sorted to alignment (required to view the alignment in tablet)
+Index the sorted to alignment (required to view the alignment in the Tablet alignment viewer)
 ```
-samtools index 2Dreads_aligned.sorted.bam
+samtools index reads_aligned.sorted.bam
 ```
 
 ##### Step 5: Alignment Visualisation
 
-- Open the tablet alignment viewer.
+- Open the Tablet alignment viewer. In the terminal type:
+```
+tablet
+```
+
 - Go to >Open Assembly.
 - Select your sorted alignment file.
 - Select your reference.
