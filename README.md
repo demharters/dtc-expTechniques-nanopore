@@ -19,9 +19,8 @@ This exercise will require Linux (Ubuntu).
 
 *When you type a command in the terminal, try pressing "TAB" while you're writing to see if software or file name exists (tab completion).*
 
-Popular tools for opening text files in Linux are vim (Terminal), less (Terminal), nano (Terminal), gedit (GUI) and libreoffice (GUI).
-
-Tools for opening pdfs and images in Ubuntu include among others evince, okular and libreoffice.
+* Popular tools for opening text files in Linux are **vim** (Terminal), **less** (Terminal), **nano** (Terminal), **gedit** (GUI) and **libreoffice** (GUI).
+* Tools for opening pdfs and images in Ubuntu include among others **evince**, **okular** and **libreoffice**.
 
 
 ### Sequencing Data
