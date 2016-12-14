@@ -234,6 +234,13 @@ For the genomic samples try aligning against GFP as well as the full genome. If 
 
 For the genomic samples, if there is alignment against GFP, look at the genomic context of the GFP gene. Can you find the site of the transposon insertion?
 
+As coverage for individual samples is low, you may want to pool your samples. They are largely the same. You can find more P. fluorescens reads in /datasets/backup/BC03. 
+
+You can concatenate text files with 'cat':
+```
+cat file1.fasta file2.fasta > file1and2.fasta
+```
+
 ##### Plasmids
 * pME3281 GacS wt in miniTn7/pUC18 - GmR
 * pME3283 GacS H294R in miniTn7/pUC18 - GmR
