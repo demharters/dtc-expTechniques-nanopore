@@ -1,7 +1,9 @@
 #/bin/bash
 
-barcode="BC03"
-reference="allRef"
+#barcode="BC03"
+#reference="allRef"
+barcode="BC06"
+reference="p_fluorescens"
 lastdb -Q 0 ../../refSequences/$reference".lastindex" ../../refSequences/$reference".fasta"
 lastal -s 2 -T 0 -Q 0 -a 1 ../../refSequences/$reference".lastindex" $barcode"_reads.fasta" > $barcode"_reads_aligned.maf"
 maf-convert sam $barcode"_reads_aligned.maf" > $barcode"_reads_aligned.sam"
