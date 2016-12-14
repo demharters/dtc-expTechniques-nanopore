@@ -28,11 +28,15 @@ cd nanoporeData
 
 ## Explore your data
 Poretools can help you characterise your nanopore reads.
-For each barcoded sample you will create a new directory in /tmp/nanoporeData, for barcode BC03 you would do:
+For each barcoded sample you should create a new directory in /tmp/nanoporeData. Try to mirror the folder structure in /datasets. I.e. for barcode BC03 in run1 you would do:
 ```
+cd /tmp/nanoporeData
+mkdir run1
+cd run1
 mkdir BC03
 cd BC03
 ```
+
 If you want to exit a directory, do:
 ```
 cd ..
@@ -90,13 +94,48 @@ cp -r /datasets/refSequences .
 ```
 
 ##### Step 1: Extract reads as FASTA
-The nanopore basecaller (Epi2Me) returns each of the basecalled reads as individual fast5 files. These are stored in binary format. We need to use **poretools** to extract the reads from the fast5 folder and store them in a single fasta file with the following command:
+The nanopore basecaller (Epi2Me) returns each of the basecalled reads as individual fast5 files. These are stored in binary format. We need to use **poretools** to extract the reads from the fast5 folder and store them in a single fasta file.
 
+Go to a directory such as /tmp/nanoporeData/BC03 and do:
 ```
-poretools fasta reads_folder > reads.fasta
+poretools fasta /datasets/run1/BC03 > reads.fasta
 ```
 
 Note, that we could also have used the fastq format which includes the quality scores and may help with the alignment step. However, for simplicity we will use the fasta format.
+
+
+##### Script
+The following commands can be run with [this script](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/alignmentScript.sh). Replace the values for "barcode" and "reference" accordingly.
+
+*I suggest you go through the commands one by one first.*
+
+```
+#/bin/bash
+
+#barcode="BC03"
+#reference="allRef"
+barcode="BC06"
+reference="p_fluorescens"
+lastdb -Q 0 ../../refSequences/$reference".lastindex" ../../refSequences/$reference".fasta"
+lastal -s 2 -T 0 -Q 0 -a 1 ../../refSequences/$reference".lastindex" $barcode"_reads.fasta" > $barcode"_reads_aligned.maf"
+maf-convert sam $barcode"_reads_aligned.maf" > $barcode"_reads_aligned.sam"
+samtools faidx ../../refSequences/$reference".fasta"
+samtools view -b -S -t ../../refSequences/$reference".fasta.fai" -o $barcode"_reads_aligned.bam" $barcode"_reads_aligned.sam"
+samtools sort $barcode"_reads_aligned.bam" $barcode"_reads_aligned.sorted"
+samtools index $barcode"_reads_aligned.sorted.bam"
+```
+
+Place the script under /tmp/nanoporeData/ and if located in /tmp/nanoporeData/run1/BC03 run it so:
+
+```
+../../alignmentScript.sh
+```
+
+You may have to give it execution permissions first, like so:
+
+```
+chmod +x ../../alignmentScript.sh
+```
 
 ##### Step 2: Index reference file
 Alignment tools like to index their files to improve computational efficiency. Provided you are working in a directory such as /tmp/nanoporeData/run1/BC03, and the reference file is named 'reference.fasta', the command would look like this:
