@@ -245,8 +245,9 @@ For the genomic samples, if there is alignment against GFP, look at the genomic 
 
 * Zuber, Sophie, et al. "GacS sensor domains pertinent to the regulation of exoproduct formation and to the biocontrol potential of Pseudomonas fluorescens CHA0." Molecular plant-microbe interactions 16.7 (2003): 634-644.
 
+Do as much as you can given the low coverage. In the following step we provide a larger dataset, which should make your life easier.
 
-### Classify plasmid variants
+### Classify plasmid variants using backup data
 For this part use the data provided in /datasets/backup. Note, that we were using an older nanopore chemistry and basecaller. To ensure high accuracy we performed 2D sequencing. So when you extract your fasta sequences with poretools do something like:
 
 ```
