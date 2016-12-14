@@ -32,8 +32,6 @@ For groups with no reads or a low number of reads, look at the samples of other 
 
 |Group|Barcode|Run|Type|
 |---|---|---|---|
-|1|BC01|2|Plasmid|
-|4|BC02|2|Plasmid|
 |5|BC03|1|Plasmid|
 |9|BC05|1|Plasmid|
 |10|BC05|2|Plasmid|
