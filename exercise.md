@@ -9,7 +9,7 @@ Software:
 - [samtools](http://www.htslib.org) (A suite of programs for interacting with HT sequencing data)
 - [Tablet](https://ics.hutton.ac.uk/tablet/) (Alignment/Assembly Viewer)
 
-The executables to all these packages should already be in your Path. In case you are wondering, they are located in /usr/local/ or /usr/local/bin.
+The executables to all these packages should already be in your Path. In case you are wondering, they are located in */usr/local/* or */usr/local/bin*.
 
 For a short descripton of file formats see [here](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/dataFormats.md).
 
