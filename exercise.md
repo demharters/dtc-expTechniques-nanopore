@@ -87,7 +87,7 @@ For **plasmid alignments** use 'allRef.fasta'. This file contains reference sequ
 
 For the **genomic samples** use the file 'p_fluorescens.fasta'.
 
-Before we continue with the alignments copy the provided directory of reference files under /datasets into /tmp/nanoporeData:
+Before we continue with the alignments, copy the provided directory of reference files under /datasets into /tmp/nanoporeData:
 ```
 cd /tmp/nanoporeData
 cp -r /datasets/refSequences .
