@@ -80,7 +80,9 @@ For more commands see the [poretools documentation](https://poretools.readthedoc
 An alignment requires one ore more reference sequences. We provided some relevant references for you under /datasets/refSequences.
 
 For **plasmid alignments** use 'allRef.fasta'. This file contains reference sequences for genes gacS, GFP, penicillin amidase and a gentamycin resistance gene and the plasmid backbones pUC18 and pME6010. The alignment software will attempt to align your reads against all those sequences. At the end of this exercise you should know which of these genes and plasmids are present and whether there are any insertions, deletions or other mutations.
+
 For the **genomic samples** use the file 'p_fluorescens.fasta'.
+
 Before we continue with the alignments copy the provided directory of reference files under /datasets into /tmp/nanoporeData:
 ```
 cd /tmp/nanoporeData
