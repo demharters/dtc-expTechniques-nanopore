@@ -1,9 +1,9 @@
 # Genome assembly by alignment/mapping of nanopore reads to a reference
 
-In this exercise we introduce a simple pipeline for the alignment of Nanopore sequencing data to a known reference sequence. It is by no means a comprehensive guide but should be viewed as a resource for first time users.
-Important aspects such as quality control of the initial dataset and the usage of quality scores in the alignment are not covered. 
+## Summary
+In this exercise we introduce a simple pipeline for the alignment of Nanopore sequencing data to known reference sequences. You will learn how to work with Linux, run genome alignment tools and analyse alignments.
 
-Software:
+### Software
 - [poretools](https://github.com/arq5x/poretools) (Toolkit for working with Nanopore data)
 - [LAST](http://last.cbrc.jp) (Alignment software for long reads)
 - [samtools](http://www.htslib.org) (A suite of programs for interacting with HT sequencing data)
@@ -20,7 +20,7 @@ or
 man [programme]
 ```
 
-### The Exercise
+## The Exercise
 Due to storage requirements you will be working in /tmp. Go to /tmp and create a new directory. In the terminal do:
 ```
 cd /tmp
@@ -28,7 +28,7 @@ mkdir nanoporeData
 cd nanoporeData
 ```
 
-## Explore your data
+### Explore your data
 Poretools can help you characterise your nanopore reads.
 For each barcoded sample you should create a new directory in /tmp/nanoporeData. Try to mirror the folder structure in /datasets. I.e. for barcode BC03 in run1 you would do:
 ```
@@ -44,7 +44,7 @@ If you want to exit a directory, do:
 cd ..
 ```
 
-### Note
+#### Note
 **In the following commands, "reads_folder" needs to be replaced with your respective read folder path, for example with "/datasets/run1/BC03".**
 
 Plot the total yield of your run:
@@ -80,14 +80,16 @@ poretools occupancy reads_folder --saveas occupancy.pdf
 For more commands see the [poretools documentation](https://poretools.readthedocs.io/en/latest/content/examples.html).
 
 
-## Alignment
+### Alignment
 
-##### Reference Sequences
+#### Reference Sequences
 An alignment requires one ore more reference sequences. We provided some relevant references for you under /datasets/refSequences.
 
 For **plasmid alignments** use 'allRef.fasta'. This file contains reference sequences for genes gacS, GFP, penicillin amidase and a gentamycin resistance gene and the plasmid backbones pUC18 and pME6010. The alignment software will attempt to align your reads against all those sequences. At the end of this exercise you should know which of these genes and plasmids are present and whether there are any insertions, deletions or other mutations.
 
 For the **genomic samples** use the file 'p_fluorescens.fasta'.
+
+You are encouraged to add more reference sequences to the reference files as we go along.
 
 Before we continue with the alignments, copy the provided directory of reference files under /datasets into /tmp/nanoporeData:
 ```
@@ -95,7 +97,7 @@ cd /tmp/nanoporeData
 cp -r /datasets/refSequences .
 ```
 
-##### Step 1: Extract reads as FASTA
+#### Step 1: Extract reads as FASTA
 The nanopore basecaller (Epi2Me) returns each of the basecalled reads as individual fast5 files. These are stored in binary format. We need to use **poretools** to extract the reads from the fast5 folder and store them in a single fasta file.
 
 Go to a directory such as /tmp/nanoporeData/BC03 and do:
@@ -106,7 +108,7 @@ poretools fasta /datasets/run1/BC03 > reads.fasta
 Note, that we could also have used the fastq format which includes the quality scores and may help with the alignment step. However, for simplicity we will use the fasta format.
 
 
-##### Script
+###### Script
 The following commands can be run with [this script](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/alignmentScript.sh). Replace the values for "barcode" and "reference" accordingly.
 
 *I suggest you go through the commands one by one first.*
@@ -139,7 +141,7 @@ You may have to give it execution permissions first, like so:
 chmod +x ../../alignmentScript.sh
 ```
 
-##### Step 2: Index reference file
+#### Step 2: Index the reference file
 Alignment tools like to index their files to improve computational efficiency. Provided you are working in a directory such as /tmp/nanoporeData/run1/BC03, and the reference file is named 'reference.fasta', the command would look like this:
 
 ```
@@ -152,7 +154,7 @@ lastdb -Q 0 ../../refSequences/reference.lastindex ../../refSequences/reference.
 
 This will generate a set of files in /tmp/nanoporeData/refSequences, with different extensions (.ssp, .tis, .sds, .des, .prj, .suf, .bck). These will be used by the alignment software in subsequent steps.
 
-##### Step 3: Alignment
+#### Step 3: Alignment
 Align the extracted reads to the reference sequence with the following command:
 
 ```
@@ -166,7 +168,7 @@ lastal -s 2 -T 0 -Q 0 -a 1 ../../refSequences/reference.lastindex reads.fasta > 
 -a	gap penalty
 ```
 
-##### Step 4: Generate Genome Viewer friendly alignment
+#### Step 4: Generate Genome Viewer friendly alignment
 Convert your alignment to the .sam format with **maf-convert.py**:
 
 ```
@@ -203,7 +205,7 @@ Index the sorted alignment (required to view the alignment in the Tablet alignme
 samtools index reads_aligned.sorted.bam
 ```
 
-##### Step 5: Alignment Visualisation
+#### Step 5: Alignment Visualisation
 
 - Open the Tablet alignment viewer. In the terminal type:
 ```
@@ -220,10 +222,29 @@ tablet
 ![Tablet alignment](https://github.com/demharters/assemblyTutorial/blob/master/figures/tablet.png)
 **Figure 1** An alignment of Nanopore reads of E.coli as viewed in Tablet.
 
-##### Step 6: Characterise Samples
-For the genomic samples try aligning against GFP. If it doesn't show up try the genes of the lux operon (luxABCDE, Photorhabdus luminescens) as an alternate, larger target. You can find the relevant fasta sequences on Genbank. You may want to add these sequences to your reference file.
+#### Step 6: Characterise Samples
+How many reads are aligning against your reference sequences? What does this tell you about your sample? Can you say which of the following samples have been successfully sequenced?
+
+##### Genomes
+* P. fluorescens WT
+* P. fluorescens gacS deletion mutant
+* P. fluorescens Transposon insertion mutant (penicillin amidase) possibly with an unidentified secondary insertion/spontaneous mutation - possibly in GacS or GacA
+* P. fluorescens Transposon mutant of the lipopeptide biosynthetic cluster
+
+For the genomic samples try aligning against GFP as well as the full genome. If it doesn't show up try the genes of the lux operon (luxABCDE, Photorhabdus luminescens) as an alternate, larger target. You can find the relevant fasta sequences on Genbank. You may want to add these sequences to your reference file.
 
 For the genomic samples, if there is alignment against GFP, look at the genomic context of the GFP gene. Can you find the site of the transposon insertion?
+
+##### Plasmids
+* pME3281 GacS wt in miniTn7/pUC18 - GmR
+* pME3283 GacS H294R in miniTn7/pUC18 - GmR
+* pME6191 GacS Δ76 in miniTn7/pUC18 -GmR
+* pME3258 with GFP
+* pME3258 without GFP
+
+[This paper](http://apsjournals.apsnet.org/doi/abs/10.1094/MPMI.2003.16.7.634) will help you identify the different gac variants:
+
+* Zuber, Sophie, et al. "GacS sensor domains pertinent to the regulation of exoproduct formation and to the biocontrol potential of Pseudomonas fluorescens CHA0." Molecular plant-microbe interactions 16.7 (2003): 634-644.
 
 
 ### Classify plasmid variants
@@ -242,10 +263,6 @@ The 5 barcoded samples BC04-BC8 correspond to the following plasmids (not necess
 - P5. pME6191 GacS Δ76 in miniTn7/pUC18 - GmR
 
 Can you figure out which barcode matches which plasmid? Apply what you have learnt. You may want to add more sequences to your reference file.
-
-[This paper](http://apsjournals.apsnet.org/doi/abs/10.1094/MPMI.2003.16.7.634) will help you identify the different gac variants:
-
-* Zuber, Sophie, et al. "GacS sensor domains pertinent to the regulation of exoproduct formation and to the biocontrol potential of Pseudomonas fluorescens CHA0." Molecular plant-microbe interactions 16.7 (2003): 634-644.
 
 
 ### Predicted phenotypes
