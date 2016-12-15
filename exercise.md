@@ -114,8 +114,7 @@ Note, that we could also have used the fastq format which includes the quality s
 ```
 #/bin/bash
 
-#barcode="BC03"
-#reference="allRef"
+reference="allRef"
 barcode="BC06"
 reference="p_fluorescens"
 lastdb -Q 0 ../../refSequences/$reference".lastindex" ../../refSequences/$reference".fasta"
