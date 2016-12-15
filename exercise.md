@@ -288,6 +288,6 @@ Reflect on the predicted phenotypes of introducing each of the GacS variants lis
 - [How LAST works](http://last.cbrc.jp/mcf-kyoto08.pdf)
 - Tutorial on [samtools](http://biobits.org/samtools_primer.html)
 - Beginner’s guide to comparative bacterial genome analysis using next-generation sequence data [DOI: 10.1186/2042-5783-3-2](http://microbialinformaticsj.biomedcentral.com/articles/10.1186/2042-5783-3-2)
-- Treangen et al. "Repetitive DNA and next-generation sequencing: computational challenges and solutions." Nature Reviews Genetics 13.1 (2012): 36-46.
+- Treangen et al. "[Repetitive DNA and next-generation sequencing: computational challenges and solutions.](http://www.nature.com/nrg/journal/v13/n1/full/nrg3117.html)" Nature Reviews Genetics 13.1 (2012): 36-46.
 - [Slides on genome analysis](http://schatzlab.cshl.edu/teaching/) by the Schatz lab
 
