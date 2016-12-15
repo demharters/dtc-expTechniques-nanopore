@@ -202,7 +202,7 @@ samtools view -b -S -t ../../refSequences/reference.fasta.fai -o reads_aligned.b
 Sort your alignment by genome location to allow for pile-up:
 
 ```
-samtools sort reads_aligned.bam -o reads_aligned.sorted
+samtools sort reads_aligned.bam -o reads_aligned.sorted.bam
 ```
 
 Index the sorted alignment (required to view the alignment in the Tablet alignment viewer)
