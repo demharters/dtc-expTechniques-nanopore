@@ -167,6 +167,8 @@ lastal -s 2 -T 0 -Q 0 -a 1 ../../refSequences/reference.lastindex reads.fasta > 
 -a	gap penalty
 ```
 
+If you would like to know more about how **LAST** works, see this [slide deck](http://last.cbrc.jp/mcf-kyoto08.pdf).
+
 #### Step 4: Generate Genome Viewer friendly alignment
 Convert your alignment to the .sam format with **maf-convert.py**:
 
