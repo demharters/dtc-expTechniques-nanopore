@@ -88,7 +88,7 @@ An alignment requires one ore more reference sequences. We provided some relevan
 
 For **plasmid alignments** use 'allRef.fasta'. This file contains reference sequences for genes gacS, GFP, penicillin amidase and a gentamycin resistance gene and the plasmid backbones pUC18 and pME6010. The alignment software will attempt to align your reads against all those sequences. At the end of this exercise you should know which of these genes and plasmids are present and whether there are any insertions, deletions or other mutations.
 
-For the **genomic samples** use the file 'p_fluorescens.fasta'.
+For the **genomic samples** use the file 'p_fluorescens.fasta' and the 'allRef.fasta'.
 
 You are encouraged to add more reference sequences to the reference files as we go along.
 
