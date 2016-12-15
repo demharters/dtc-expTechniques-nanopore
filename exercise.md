@@ -110,7 +110,7 @@ Note, that we could also have used the fastq format which includes the quality s
 
 
 ###### Script
-###### This script includes all commands shown in the section below. I suggest you skip this script and go through the commands one by one first.
+#### This script includes all commands shown in the section below. I suggest you skip this script and go through the commands one by one first.
 ```
 #/bin/bash
 
