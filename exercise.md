@@ -119,12 +119,12 @@ Note, that we could also have used the fastq format which includes the quality s
 barcode="BC06"
 reference="p_fluorescens"
 lastdb -Q 0 ../../refSequences/$reference".lastindex" ../../refSequences/$reference".fasta"
-lastal -s 2 -T 0 -Q 0 -a 1 ../../refSequences/$reference".lastindex" $barcode"_reads.fasta" > $barcode"_reads_aligned.maf"
-maf-convert sam $barcode"_reads_aligned.maf" > $barcode"_reads_aligned.sam"
+lastal -s 2 -T 0 -Q 0 -a 1 ../../refSequences/$reference".lastindex" reads.fasta > reads_aligned.maf
+maf-convert sam _reads_aligned.maf > reads_aligned.sam
 samtools faidx ../../refSequences/$reference".fasta"
-samtools view -b -S -t ../../refSequences/$reference".fasta.fai" -o $barcode"_reads_aligned.bam" $barcode"_reads_aligned.sam"
-samtools sort $barcode"_reads_aligned.bam" -o $barcode"_reads_aligned.sorted.bam"
-samtools index $barcode"_reads_aligned.sorted.bam"
+samtools view -b -S -t ../../refSequences/$reference".fasta.fai" -o reads_aligned.bam reads_aligned.sam
+samtools sort reads_aligned.bam -o reads_aligned.sorted.bam
+samtools index reads_aligned.sorted.bam
 ```
 The following commands can be run with [this script](https://github.com/demharters/dtc-expTechniques-nanopore/blob/master/alignmentScript.sh). Replace the values for "barcode" and "reference" accordingly.
 
