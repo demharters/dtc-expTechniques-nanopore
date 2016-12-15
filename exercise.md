@@ -145,6 +145,8 @@ chmod +x ../../alignmentScript.sh
 #### Step 2: Index the reference file
 Alignment tools like to index their files to improve computational efficiency. Provided you are working in a directory such as /tmp/nanoporeData/run1/BC03, and the reference file is named 'reference.fasta', the command would look like this:
 
+Note that "reference" in reference.lastindex should be replaced by your "allRef" or "p_fluorescens" or any other reference file name you are using.
+
 ```
 lastdb -Q 0 ../../refSequences/reference.lastindex ../../refSequences/reference.fasta
 ```
