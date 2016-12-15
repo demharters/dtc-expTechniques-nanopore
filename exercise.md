@@ -120,7 +120,7 @@ barcode="BC06"
 reference="p_fluorescens"
 lastdb -Q 0 ../../refSequences/$reference".lastindex" ../../refSequences/$reference".fasta"
 lastal -s 2 -T 0 -Q 0 -a 1 ../../refSequences/$reference".lastindex" reads.fasta > reads_aligned.maf
-maf-convert sam _reads_aligned.maf > reads_aligned.sam
+maf-convert sam reads_aligned.maf > reads_aligned.sam
 samtools faidx ../../refSequences/$reference".fasta"
 samtools view -b -S -t ../../refSequences/$reference".fasta.fai" -o reads_aligned.bam reads_aligned.sam
 samtools sort reads_aligned.bam -o reads_aligned.sorted.bam
