@@ -21,6 +21,7 @@ man [programme]
 ```
 
 ## The Exercise
+The data can be found in /datasets. Don't copy the data, just call it.
 Due to storage requirements you will be working in /tmp. Go to /tmp and create a new directory. In the terminal do:
 ```
 cd /tmp
@@ -58,7 +59,7 @@ poretools yield_plot \
 
 Use software such as libreOffice to look at the output. Provided you are in the right folder, in the terminal type:
 ```
-libreOffice reads_yield.pdf
+libreoffice reads_yield.pdf
 ```
 
 Plot the distribution of read lengths:
