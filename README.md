@@ -28,7 +28,7 @@ This exercise will require Linux (Ubuntu).
 ### Sequencing Data
 Each pair of you was assigned one DNA sample and one of 9 barcodes. As there were 18 pairs in total, each DNA sample and barcode was shared between two pairs. After you gave us your barcoded libraries on Tuesday we quantified them. Using those concentrations we split your samples up into two sets of 9 samples, pooled them and sequenced them on two independent Oxford Nanopore flow cells. The respective datasets are located under **/datasets/run1** and **/datasets/run2**. Unfortunately, not all samples were sucessfully sequenced. This could be due to a variety of reasons.
 
-The data should already be on your machines. You can download the same data from [here](https://figshare.com/s/1ef7923d6717ba8172ec).
+The data should already be on your machines, in /datasets. You can download the same data from [here](https://figshare.com/s/1ef7923d6717ba8172ec).
 
 For groups with no reads or a low number of reads, look at the samples of other pairs. The following table shows where the sequencing data can be found.
 
